@@ -1,0 +1,183 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		// 생성법 1
+		var obj = {};
+		Object.defineProperty(obj, "book", {value:123});
+		//console.log(obj.isExtensible());
+		
+		for(var name in obj) {
+			console.log("CASE 1 : " + name);
+		}
+		
+		// 생성법 2
+		var obj2 = {book:123};
+		for(var name in obj2) {
+			console.log("CASE 2 : " + name);
+		}
+		
+		// 생성법 3
+		var obj3 = {};
+		Object.defineProperty(obj3, "book", {value:123,enumerable:true});
+		for(var name in obj3) {
+			console.log("CASE 3 : " + name);
+		}
+		
+		console.log("#####################################");
+		
+		var obj4 = {};
+		Object.defineProperty(obj4, "book", {
+			get:function(){return "책";} // value 속성이 없어도 get이 호출되면서 값 반환 가능
+		});
+		var res = obj4.book;
+		console.log(res);
+		
+		console.log("#####################################");
+
+		var obj5 = {};
+		//var bookValue;
+		Object.defineProperty(obj5, "book", {
+			set:function(param){
+				bookValue = param;
+				bookValue2= param+param;
+			},
+			get:function(){
+				return bookValue;
+			}
+		});
+		obj5.book = 123;
+		var res2 = obj5.book;
+		console.log(res2);
+		console.log(bookValue);
+		console.log(bookValue2);
+		
+		console.log("#####################################");
+		
+		var obj6 = Object.defineProperty({}, "book", {
+			value:"자바스크립트",
+			writable:true,
+			enumerable:true
+		});
+		var desc = Object.getOwnPropertyDescriptor(obj, "book");
+		for(var key in desc){
+			console.log(key + ":" + desc[key]);
+		}
+		
+		console.log("#####################################");
+
+		var obj = Object.defineProperties({}, 
+		{
+			soccer : {
+				value:"축구",
+				enumerable:false
+			},
+			book : {
+				value:"자바스크립트",
+				enumerable:true
+			}
+		});
+
+		var nms = Object.getOwnPropertyNames(obj, "book");
+		for(var key in nms){
+			console.log(key + ":" + nms[key]);
+		}
+		
+		console.log("#####################################");
+		
+		var nms2 = Object.keys(obj);
+		for(var key in nms2){
+			console.log(key + ":" + nms2[key]);
+		}
+		console.log("#####################################");
+		
+		function Book() {
+			this.count = 123;	// <- 인스턴스에만 존재
+		};
+		
+		Book.prototype = {
+			getValue : function(){return 100;},	// <- 프로토타입에만 존재
+			getAmount: function(){return 10;} 	// <- 프로토타입에만 존재
+		};
+		
+		var obj = new Book();
+		var res = Object.getPrototypeOf(obj);
+		for(var key in res){
+			console.log(key + ":" + res[key]);
+		}
+		console.log(obj.getValue());
+		console.log(obj.getAmount());
+		console.log("#####################################");
+
+		function Book2(){};
+		Book2.prototype.getValue = function(){};
+		var objBook = new Book2();
+		
+		Object.preventExtensions(objBook);
+		console.log(Object.isExtensible(objBook));
+		
+		objBook.getAmount = function(){};
+		//console.log(objBook.getAmount());
+		
+		
+		console.log("#####################################");
+		
+		var objX = Object.defineProperty({},"swim",{value:"수영", writable:true,enumerable:true,configurable:true});
+		Object.seal(objX);
+		
+		try {
+			Object.defineProperty(objX, "baseball", {value:"야구"});
+		} catch(e) {
+			console.log(e);
+		}
+		
+		console.log("#####################################");
+		
+		
+		console.log("#####################################");
+		
+		
+		console.log("#####################################");
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>ES5 Object Object</h1>
+		
+		- 함수만 추가됨
+		- 함수와 메소드의 구분
+			. 상속(Object.prototype)의 필요성이 낮을때 함수로 정의 
+			. 인스턴스(new 사용) : 함수는 할당되지 않음. 다른값을 가지기 위해
+		- Object의 함수 속성
+			. defineProperty : property ({"키":"값"}에서  "키"에 해당) 추가, 변경
+			. Property Description : value, writable, get, set, enumerable, configurable
+
+		- Object Property 작성법
+			var obj    = {};
+			obj.add    = "더하기";
+			obj["add"] = "더하기";
+			
+		- Object.defineProperty(대상 오브젝트, 프로퍼티 이름, 속성(Description))
+		                      Property마다 상태 가진다
+		
+		- Property Description (value,get 또는 writable,set은 동시에 기술 못함)
+			a. 데이터 : value/writable
+			b. 악세스 : get/set
+			c. 공용 : enumerable/configurable
+			
+		- Object.getPrototypeOf() : prototype오브젝트에 연결된 프로퍼티 반환. ES6 ~
+			</div>
+		
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

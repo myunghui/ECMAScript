@@ -1,0 +1,86 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6</title>
+		<script src="myCode46.js" defer></script>
+	</head>
+	<body>
+		<pre>
+===========================================================================================
+
+<< Promise >>
+
+- javascript는 동기 방식으로 수행되나, Promise를 통해 비동기식 처리 가능
+- XMLHttpRequest와 유사. 특정 조건이 되었을때 수행되는 처리가 차이
+- 처리 진행할떄마다 [[promiseState]]에 저장
+  pending, settled (fulfilled, rejected)
+- pending 상태 : 인스턴스 생성 및 Handler 바인딩
+- settled 상태 : ....
+
+- new Promise(function resolve, reject) {}).then(
+	resolve에 연결할 처리, reject에 연결할 처리
+  )
+- resolve, reject Handler의 파라미터는 1개만 허용
+- return 없어도 Promise 인스턴스 반환
+- Promise.all(동작a,동작b,동작c).then()...catch()
+
+===========================================================================================
+
+
+<< Web Component >>
+
+- 웹콘텐츠를 컴포턴트로 재사용
+- 사용자정의 엘리먼트 가능 (xml과 유사)
+- W3C 표준으로 브라우저에 탑재된 네이티브 (javascript 아님)
+- 구성 4 가지
+  . Custom Elements
+  . HTML Templates
+  . HTML imports
+  . Shadow DOM
+
+<< HTML Templates >>
+
+- Spec : https://html.spec.whatwg.org/
+
+- 아래의 작업의 단점을 보완
+  문자열로 Elements로 innerHTML 사용
+	javascript로 속성값 변경
+  cross site scripting 문제
+
+- import 하여 사용 (통신 속도 이슈 없게 되면서 가능)
+- Fragment : <template>자체는 Dom Tree에 반영안되며,
+	           (template rendering 안됨)
+						 템플릿안의 요소를 만든후 Dom Tree에 반영
+
+<< Shadow DOM >>
+- DOM Tree의 컴포넌트화 및 캡슐화
+  필요한 시점에 반영
+- <template>에 DOM Tree와 Style 작성
+- w3c
+
+<< Custom Elements >>
+
+- prototype 연결
+  const obj = Object.create(HTMLElement.prototype);
+  document.registerElement("x-custom", {prototype:obj});
+- attribute, function 등을 추가하여 기능 확장 가능
+
+- callback
+  . 콜백함수 자동 호출 사유 있음
+	. createCallback     : Custom Element 생성시
+	  attachedCallback   : Element 추가시
+		detachedCallback   : Element 삭제시
+		attributeChangedCallback : Element 속성의 추가, 삭제, 변경시
+
+
+
+===========================================================================================
+
+
+
+
+
+		</pre>
+	</body>
+</html>

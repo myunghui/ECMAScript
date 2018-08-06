@@ -1,0 +1,39 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+
+		/*
+		throw 표현식
+		표현식은 1줄로 기술. 
+		*/
+
+		// 예제
+		console.log("#####################################");
+		
+		/*
+		var sports;
+		var res;
+		*/
+		try {
+			//throw "throw 문자열";
+			throw {message : "throw object throw"};
+		} catch(e) {
+			res = "error";
+			console.log("catch");
+			console.log(e.message);
+		} finally {
+			console.log("finally");
+			console.log(res);
+		}
+
+		console.log("#####################################");
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

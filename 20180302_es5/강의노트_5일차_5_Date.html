@@ -1,0 +1,60 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		console.log(Date.parse("2013"));
+		console.log(Date.parse("2013-12"));
+		console.log(Date.parse("2013-12-25"));
+		
+		
+		console.log(Date.parse("2013-12-25T09:12:34.123"));
+		
+		var d = Date.now();
+		console.log(d);
+		
+		
+		console.log(new Date(2018, 11, 33));
+		console.log(new Date(2018, 2, 30));
+		console.log(new Date(2018, 2, 28));
+		
+		console.log("#####################################");
+		
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>Date Object</h1>
+		
+		- UTC 기준 : 1970.1.1 ~ milisecond
+		- 년월일 시분초 밀리초 milisecond
+		- 월 : 0부터 시작
+		- 일 : 1부터 시작
+		- 요일 : 0(일요일)부터 
+		- YYYY
+		  YYYY-MM
+		  YYYY-MM-DD
+		  THH:mm
+		  THH:mm:ss
+		  THH:mm:ss.sss
+		- MM, DD 미작성 : 01
+		  HH, mm 미작성: 00
+		  sss 미작성: 000
+		- Date.parse(문자열) : 1970-01-01 부터 경과한 시간을 밀리초로 반환
+		- Date.UTC() : 연도만 작성시 개발사마다 다름 주의.
+		- new Date(년, 월, 일) : 일자가 해당월을 넘는 숫자가 들어올 경우, 지동으로 일자 가산하여 날짜 반환
+		
+		</div>
+		
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

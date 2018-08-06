@@ -1,0 +1,69 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		var obj = new Number(123);
+		console.log("primitive : " + obj);
+		console.log("new Number() : " + new Number());
+		console.log("Number(\"123.456\") + 500 : " + (Number("123.456") + 500));
+		console.log("Number(\"ABC\") : " + new Number("ABC"));
+		console.log("Number(undefined) : " + Number(undefined));
+		console.log("Number(true) : " + Number(true));
+		console.log("Number(null) : " + Number(null));
+		
+		console.log("#####################################");
+		
+		console.log("Number.MAX_VALUE=" + Number.MAX_VALUE);
+		console.log("Number.MIN_VALUE=" + Number.MIN_VALUE);
+		console.log("Number.NaN=" + Number.NaN);
+		console.log("Number.POSITIVE_INFINITY=" + Number.POSITIVE_INFINITY);
+		console.log("Number.NEGATIVE_INFINITY=" + Number.NEGATIVE_INFINITY);
+		
+		console.log("#####################################");
+		var val = 26;
+		console.log("26 ==  val.toString() : " + (26 ==  val.toString()));
+		console.log("26 === val.toString() : " + (26 === val.toString()));
+		
+		console.log("toString(2) : " + (val.toString(2)) + " // 이진수로 변환");
+		//var val2 = new Number(1234567890);
+		//console.log(val2.toLocalString());
+		
+		
+		val = 1234.567;
+		var res = val.toFixed(2);
+		console.log("Number.toFixed = " + res + "( type = " + typeof res + " )" );
+		console.log("#####################################");
+		
+		</script>
+	</head>
+	<body>
+		<pre>
+		Number object
+		
+		- Number() : 문자열이 숫자라면 사용 가능
+		
+		- parseInt() 와의 차이
+			. String -> Number Type 변환
+			. 자바스크립트에서 Number타입은 64바이트 공간안에 "정수 + 소수 이하" 합하여 넣는 개념 -> 타입 구분 없음
+			. parseInt는 글로벌 객체. cf) ES6 : Number.parseInt()
+			. parseInt			|Number
+			  ---------------------------------------
+			  글로벌 객체			|
+			  정수값만 반환			|소수값도 유지
+			  "123ABC" : 123	|"123ABC" : NaN
+			  진수 사용 가능		|진수 사용 불가
+			  
+		- Number의 상수
+			. Number.MAX_VALUE, Number.MIN_VALUE
+			. Number.NaN
+			. Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY
+			
+		- Number.toFixed() : 고정소수점 표기. 문자열로 반환하는 것에 주의.
+		</pre>
+	</body>
+</html>
+

@@ -1,0 +1,73 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+
+      // for (A;B;D) {C}
+      // A : 변수 선언 및 초기값 할당
+      // B : 표현식 평가
+      // C : 로직
+      // D : 변수 증감
+      // A, B, D 모두 생략가능하나 가독성울 위해 모두 기술
+      /*
+      for(var i = 0; i < 3; i++) {
+        console.log(i);
+      }
+
+      // 증감로직이 복잡하다면 이렇게
+      for(var i = 0; i < 3;) {
+        console.log(i);
+        i++;
+      }
+
+      // ES5, ES6 에서는 변수 선언 및 Scope 다름에 주의
+      var k = 0;
+      for(; k < 3;) {
+        console.log(k);
+        k++;
+      }
+
+      for(var k = 0;;) {
+        console.log(k);
+        k++;
+        if(k < 3) {
+          break;
+        }
+      }
+      */
+
+
+      // 예제
+      console.log("#####################################");
+
+      var a = 0;
+      var b = 0;
+      var c = 0;
+      for(var i = 1; i<=50 ; i++) {
+
+        // 홀수 누적
+        if ( (i%2) === 1 ) {
+          a = a + i;
+        // 짝수 누적
+        } else {
+          b = b + i;
+        }
+
+        // 기본 누적
+        c = c + i;
+
+      }
+
+      console.log("홀수 누적 = " + a + ", 짝수 누적 = " + b + ", 전체 누적 = " + c);
+
+      console.log("#####################################");
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

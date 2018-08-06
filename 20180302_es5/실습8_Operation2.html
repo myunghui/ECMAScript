@@ -1,0 +1,44 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+    // 1.If Type(x) is the same as Type(y), then
+    //    a.If Type(x) is Undefined, return true.
+    var x;
+    var y;
+    if (x == y) {
+      console.log("1.If Type(x) is the same as Type(y), then a.If Type(x) is Undefined, return true.")
+    }
+
+//    b.If Type(x) is Null, return true.
+    x = null;
+    if (x == y) {
+      console.log("b.If Type(x) is Null, return true.");
+    }
+
+//    c.If Type(x) is Number, then i.If x is NaN, return false.
+    x = NaN;
+    if (x != y) {
+      console.log("c.If Type(x) is Number, then i.If x is NaN, return false.");
+    }
+//    ii.If y is NaN, return false.
+
+//    iii.If x is the same Number value as y, return true.
+//    iv.If x is +0 and y is −0, return true.
+//    v.If x is −0 and y is +0, return true.
+//    vi.Return false.
+
+//    d.If Type(x) is String, then return true if x and y are exactly the same sequence of characters (same length and same characters in corresponding positions). Otherwise, return false.
+//    e.If Type(x) is Boolean, return true if x and y are both true or both false. Otherwise, return false.
+//    f.Return true if x and y refer to the same object. Otherwise, return false.
+
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

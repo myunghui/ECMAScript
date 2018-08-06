@@ -1,0 +1,54 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+
+      // for (A;B;D) {C}
+      // A : 변수 선언 및 초기값 할당
+      // B : 표현식 평가
+      // C : 로직
+      // D : 변수 증감
+      // A, B, D 모두 생략가능하나 가독성울 위해 모두 기술
+      /*
+      RETURN
+
+      retrurn 표현식;
+
+      명시적인 표현식 없으면 엔진이 자동으로 undefined 반환
+
+
+      */
+
+
+      // 예제
+      console.log("#####################################");
+
+      function test1(){
+
+        return; // undefined 반환
+
+      }
+
+      function test2(){
+
+      }
+
+      function test3(){
+        return undefined;
+      }
+
+      console.log(test1());
+      console.log(test2());
+      console.log(test3());
+
+      console.log("#####################################");
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

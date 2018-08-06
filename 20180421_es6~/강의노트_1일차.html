@@ -1,0 +1,132 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6</title>
+		<script src="myCode13.js" defer></script>
+	</head>
+	<body>
+		<pre>
+			- Property key와 name 차이
+			  . Property name : String
+			  . Property Key : String + Symbol
+			- let, const
+			
+			- var : 
+			
+			- let
+			  . var 문제점 해결
+			  . 동일 scope에서 중복 선언 불가
+			  . scope 범위 : {}, 문장, 표현식
+			  . hosting안됨
+			  . let으로 선언된 변수는 값 변경 가능
+			    cf) const와 비교
+			
+			- Block Scope
+			  . let  사용의 제1목적
+			  
+			  
+			- const
+			  . 선언과 동시에 값 설정해야. 초기화된 값은 변경 불가.
+			  . Convention : const 대문자_상수명
+			  . "="로 재할당은 안되지만, 초기화된 오브젝트의 변형은 가능.
+			
+			- arrow Function
+			  . (파라메터) => {로직....}
+			     파라메터 1개이면 소괄호 생략 가능
+			     표현식에 return 키워드 생략 가능
+				 함수 Body에 소괄호 표시는 표현식이란 뜻
+				 파라메터측에 초기화도 동시 적용 가능
+				 그외 여러가지 표현 패턴 존재
+			  . scope가 window라는게 주의점.
+			  . new 생성 불가 (prototype는 오브젝트)
+			  . arguments 사용 불가
+			  . this 사용
+			
+			- Lambda function
+			
+			- Iteration
+				. 구성 : iterable protocal, iterator protocal
+				. iterable protocal
+				  : 오브젝트의 반복 동작을 정의
+				  : 빌트인 오브젝트들은 가지고 있음
+				  : next함수 있어야
+				. iterator protocal
+				  : Symbol.iterator() 존재 필수.
+				  : Array 상속 받으면 (prototype chain) iterable object
+			
+			- Spread
+				. [...iterable]
+				. 배열을 전개
+				. String, function, property, Map, NodeList, 배열 등 모두 가능 
+				. push의 파라메터로 제공 가능
+
+			- rest 파라메터
+				. function(param, paramN, ...rest)
+				. ...파라메터명
+			
+			- Array-like
+				. let one {0:값, 1:값, length:2};
+				. 프로퍼티 key값 0부터 순서대로 작성
+				. 프로퍼티 length 정의
+				. Object이지만 for문으로 전개 가능
+				
+			- Destructuring Assignment
+				. [one, two, three] = [1,2,3];
+				
+			- Object 분할
+				. {one, two} = {one:1, two:20};
+				. 키 매핑하여 값 매핑
+			
+			- Descriptor (ES5)
+				. Property Descriptor Type
+				  _데이터 : value(undefined), writable(false)
+				  _엑세스 : get(undefined), set(undefined)
+				  _공용    enumerable(false), configurable (false)
+				. var obj = {};
+				  Object.defineProperty(obj, "book", {get:function(){return "책";});
+				  var result = obj.book;
+				  
+			- ES6 의 Getter, Setter
+				. gettter
+					const obj = get getTotal{ return this.total; };
+				. setter
+					const obj = set setTotal(value){ this.total = value; };
+			- [] : 프로젝트명 치환
+			
+			- 거듭 제곱
+				. ** : Math.pow()와 동일
+			- default값 할당
+			
+				. const [one, two, five=5] = [1, 2]
+				  five할당 안되었지만 디폴트 값 5가 할당됨
+				. const plus = (one, two=2) => one + two;
+				  plus(1);
+				
+			- for - of statement
+				. for (const value of [10, 20, 30]) {}
+				  cf) for(variable of iterable){}
+				. for (const value of "ABC") {}
+				. for (const value of NodeList) {}
+				. Object.keys()
+			
+			- Object
+				. Object.is(값1, 값2) 
+				  : 두개의 파라미터 값과 값 타입 비교. === 로 비교.
+				  : -undefined, null 비교는 false.
+				  : 값만 비교. 타입 비교 안함.
+				  : +0 ===-0 : true / Object.is(+0, -0) : false
+				  : NaN===NaN : false / Object.is(NaN, NaN) : true
+				. Object.assign(target, source)
+				  : 값 연동 안하기 위햐 사용하나, 연동되는 부분 있음에 즈의
+				  : source property만 tareget object에 복제. prototype, property descriptor는 복제 제외.
+				  : 값이 null, undefined 이면 복사 안됨. key : value 형태의 value라면 가능.
+				  : 완전하게 연동하지 않도록 구현 필요 => property단위로 복제
+				  : 복제 소스에 함수가 존재하는 경우, 복제하면서 function수행하고 결과를 value로 설정함에 유의
+				. Object.setPrototypeOf(target 오브젝트, source 오브젝트의 prototype의 프로퍼티 또는 null)
+				  : 첫번째 파라미터의 "__proto__" 에 두번째 파라미터 설정     <= 상속 구현
+				  : Object.isExtensible결과가 false이면 TypeError
+		</pre>
+	</body>
+</html>
+

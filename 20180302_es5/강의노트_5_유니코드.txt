@@ -1,0 +1,16 @@
+- Unicode
+
+. 전세게 모든 문자를 통합하는 코드
+. www.unicode.org
+. 범위
+0000~FFF
+10000 ~ 1FFFF <- ES7 부터 가능
+. 한글, 한중일 종합 한자도 포함
+. UTF : Unicode Transformation Format
+UTF-8, UTF-16, UTF-32
+
+. 표기법 : u+숫자
+예) u0031 은 1
+
+. 코딩 예)
+\ + 유니코드값

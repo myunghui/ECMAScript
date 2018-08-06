@@ -1,0 +1,70 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6</title>
+		<script src="myCode37.js" defer></script>
+	</head>
+	<body>
+		<pre>
+===========================================================================================
+
+<< Class >>
+
+- class 클래스명 extends 수퍼클래스명 {}
+- Instance 생성되면
+  상속받은 멤버변수과 __proto__ 가 생성 <= this
+	오버라이드된 변수가 아니면 __proto__ 안에 수퍼의 __proto__ 를 연쇄적으로 찾아감
+- 수퍼클래스
+  . "super." 으로 접근
+  . constructor 내 super의 생성자 호출하려면 첫번째 줄에 기술해야 함
+    <= 생성자가 호출되어야 멤버변수가 생성되므로
+- built-in 상속
+- Object.setPrototypeOf(클래스, 수퍼클래스) : class 구조외 추상화 가능한 방법
+- 버전별 추상화
+  . ES5 : super 없고, Object.create() 제약
+  . ES6 : 좀더 진화된 OOP
+- static : 클래스의 정적메소드 선언. 변경, 삭제, 열거 불가.
+           prototype 에 연결 안 됨(인스턴스 할당 제외).
+- generator 함수 작성 가능 : prototype 에 작성 가능
+- Symbol : 글로벌오브젝트 Scope에 1개만 존재.
+
+===========================================================================================
+
+- Well-Known Symbols
+  . @@ : Symbole 의미 예) @@hasInstance = Symbol.hasInstance
+- [Symbol.species] : constructor 반환
+- [Symbol.toPrimitive](hint){} : hint는 "default", "number", "string"로 값 할당되어 들어옴
+
+===========================================================================================
+
+- Map
+  . [key, value]
+		예) const mapObj = new Map([["key1", "value1"], .....]);
+	. 조회와 작성 순서는 보장 하지 않음
+	. for-in문으로는 작성 순서대로 조회 가능
+	. ES3 : key 중복 허용
+	  ES5 strict mode : 이미 존재하는 key로는 추가 안됨
+		                  값의 대체는 가능
+	. Key - Value형태이면서, Iterable 형태라면 Map 사용
+  . Map.Set, get, has, entries, keys, forEach, delete, clear
+	. forEach(콜백함수(값, 키, Map인스턴스){...; return ...;})
+	  반복문 처리도중 Map에 상태가 변경될 경우도 모든 항목이 수행될때까지 반복처리.
+	  Map상태를 지속적으로 체크함
+  . WeakMap : Object만 키로 사용하는 제약 있음.
+	            참조오브젝트의 참조관계가 없어지면 GC 대상됨.
+							Map은 GC대상 아님.
+- Set
+  . value가 key
+
+- Proxy
+  . 동작을 가로채어 실행
+	. 
+
+===========================================================================================
+
+
+
+		</pre>
+	</body>
+</html>

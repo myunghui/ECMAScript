@@ -1,0 +1,19 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+    // 오브젝트 초기화
+    var obj = {"book":"책", "sky":"하늘"};
+    // name(key) 는 원칙적으로는 문자열로 정의해야 함. jason.parse 에서 key를 문자열로 만드는 처리 한다.
+
+    
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

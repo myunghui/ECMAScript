@@ -1,0 +1,75 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		var res = JSON.parse('["ABC" : "가나다"]');
+		for (var k=0;k<res.length;k++){
+			console.log(res[k]);
+		}
+		console.log("#####################################");
+		console.log(JSON.parse("null"));
+		console.log("#####################################");
+		
+		try {
+		
+			var res = JSON.parse(
+				{"soccer":"55", "ball" : "22"},
+				function(key, value) {
+					return key === "soccer" ? 11: value;
+				}
+			);
+		
+		} cathc(e) {
+			console.log("JSON parse 에러");
+		}
+		
+		console.log("#####################################");
+		
+		res = JOSN.stringify(123);
+		console.log(res);
+		console.log(type of res);
+		console.log(JSON.stringify([Infinity, NaN, null]);
+		console.log(JSON.stringify([true, false]);
+		console.log(JSON.stringify(undefined);
+		console.log(JSON.stringify([undefined]);
+		
+		console.log(JSON.stringify({"soccer" : ""});
+		console.log(JSON.stringify({"soccer" : undefined});
+		console.log(JSON.stringify(['soccer', 'baseball'});
+		console.log(JSON.stringify([{'soccer':A}, {baseball:9}, {aaa:null}});
+		
+		
+		console.log("#####################################");
+		
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>JSON Object</h1>
+		
+		- parse 
+			. JSON.parse(JSON 문자열, function (key, value) { return ? }}
+			. function에 retrun 명기 없는 경우, value가 undefined 되는것에 주의
+			. JSON 문자열. {"" : ""}
+			. ES5에서는 KEY도 문자열임에 주의. ES6에서는 KEY에 변수로 지정 가능. 
+			. "123." (X)  "123.0" (O)
+			. 10 진수만 사용 가능. 16진수, 지수 사용 불가
+			. 첫째자리에 0 사용 불가 ex) "0123"
+			
+		- stringify
+			. JSON.stringify(변환 대상, function (key, value) { return ? }, 편집문자)
+		</pre>
+		</div>
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

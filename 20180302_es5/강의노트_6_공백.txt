@@ -1,0 +1,11 @@
+
+< White Space >
+unicode
+
+\u0009  수평탭 <TAB>
+\u000B  수직탭 <VT>
+\u000C  From Feed <FF>
+\u0020  Space <SP>
+\u00A0  수직탭 <VT>
+\u0008
+\uFFF

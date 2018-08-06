@@ -1,0 +1,60 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		// 값 누적
+		var arr = [];
+		var sum = 0;
+		for(var k=0;k<10;k++){
+			arr.push(Math.random());
+			//console.log(arr[k] + ":" + (typeof arr[k]));
+			sum = sum + arr[k];
+		}
+		console.log(arr);
+		
+		// 최소값
+		var n = Math.min.apply(this, arr);
+		
+		// 최대값
+		var x = Math.max.apply(this, arr);
+		
+		// 평균값
+		var g = sum/arr.length;
+		
+		console.log("최소값=" + n);
+		console.log("최대값=" + x);
+		console.log("합계값=" + sum);
+		console.log("평균값=" + g);
+		
+		console.log("#####################################");
+		
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>Math Object</h1>
+		
+		- Single Object : new 안됨.
+		  ex) Math, JSON
+		- Math.함수() 형태로 사용
+		- abs : 절대값
+		- floor : 절하. 버린 결과가 음수면 -1
+		- ceil : 절상. 버린 결과가 음수면 + 1
+		- round 
+		- max : 파라메터 갯수가 유동적. -> Math.max.apply 적용 할 것
+		- min : 파라메터 갯수가 유동적. -> Math.max.apply 적용 할 것
+		</div>
+		
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

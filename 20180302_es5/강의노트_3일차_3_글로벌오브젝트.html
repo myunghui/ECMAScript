@@ -1,0 +1,58 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		var book;
+		debugger;
+		var val = window.NaN;
+		console.log(window.NaN);
+		debugger;
+		
+		console.log("#####################################");
+		
+		
+		
+		</script>
+	</head>
+	<body>
+	<pre>
+
+		Global Object
+		
+		. Bulit in Object. 실체가 없는 오브젝트. 
+		  오브젝트 생성 없이(new 안됨. 함수다)  함수 호출 및 변수에 접근.
+		  실제적인 프로젝트에서는 사용 안함.
+		  Global property, function 으로 사용됨
+		  ES6에서는 undefined 외엔 사용하지 않음. 모두 Object별로 재분류됨.
+		
+		. 값 프로퍼티 : NaN, Infinity, undefined
+		. 함수 프로퍼티 : isNaN(), isFinite(), parseInt(), parseFloat(), eval(), endcodeURI(), decodeURI()......
+		. 생성자 프로퍼니 : Array, Boolean, Date, Error, EvalError, Function, Numer, Object, RangeError, ReferenceError, String, SyntaxError, TypeError, URIError
+		. 이외 프로퍼티 : Math, JSON <- prototype 없음
+		
+		cf) javascript에서 encode는 ascii를 16진수로 변환한다는 의미
+		
+		. window와 global object
+		  window 오브젝트는 window에서 제공
+		  global 오브젝트는 javascript에서 제공
+		  오브젝트가 없어 엔진에서 window로 접근할 수 있게 제공하고 있음.
+		예) window.NaN
+		
+		1) isNaN
+		  . is Not a Number
+		  . NaN === NaN : false에 주의
+		  . isNaN() : 파라메터 없으면 undefined 로 간주하므로 true
+		2) parseInt
+		  . 진수 적용한 정수값 반환
+		  . 12.45 -> 123
+		  . 123ABC -> 123
+		
+		
+	</pre>
+	</body>
+</html>
+

@@ -1,0 +1,135 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6</title>
+		<script src="myCode27.js" defer></script>
+	</head>
+	<body>
+		<pre>
+			- javascript의  prototype의 속성 편집은
+			  내포된 Scope에서 구조가 공유된다.
+				아래 2가지가 코드의 순서에 상관없이 영향 준다.
+				. prototype에 메소드 추가
+				. __proto__에 메소드 추가
+				=> 직관성을 위해서는 프로퍼티 또는 메소드 편집이
+				   필요하다면 구현 방법 및 코딩 위치 가독하기 쉽게 위치 시켜댜
+			- Object.setPrototypeOf(오브젝트, 프로토타입)
+			  . instance 생성 기능까지 포함되어 있음.
+			  . 프로토타입 자리에 오브젝트생성자를 줄 경우, 오브젝트.__proto__.prototype 이 연결됨.
+			  cf) ES5에는 getPrototypeOf() 만 있었음.
+			- Number
+			  . IEEE 754에 정의
+				. double-precision floating-point format number로 숫자 표시
+				. 64 bit 유동 소수점 형태로 수룰 표시
+				=>  sign     ( 1 bit, 부호영역) +
+				    exponent (11 bit, 지수영역) +
+				    fraction (52 bit, 유효숫자영역(정수 + 소수))
+				. Number.MAX_SAFE_INTEGER
+				. Number.MIN_SAFE_INTEGER
+				. Number.EPSILON : 연산시 이진유동소수점 처리되는 원리로 인한 오차의 허용치값
+			- Literal
+			  . 2진수 : ES6에서 추가
+				         "0" + "b 또는 B" + "0 또는 1"...
+				         예) ob0101,OB0101
+			- Number.isNaN()
+			  cf) NaN 체크 방법
+				    NaN === NaN 이 false 이므로 사용 불가
+				    isNaN() <= Global Object
+						Number.isNaN()
+						Object.is(NaN, NaN)
+			- Number.isInteger
+			- Number.isSafeInteger
+			- Number.isFinite : Global Object의 동명 메소드와 결과 다름에 주의
+			- Math
+			  . 32 bit
+			    Math.imul
+			    Math.clz32
+				  Math.found
+			    cf) Emscripten Project
+			- Unicode
+			  . ES6. Unicode 관련 프로퍼티 및 메소드 추가
+				. U+0000 ~ U+10FFFF : 110만개
+				. plane : code point 전체를 17개로 나눠 분류
+				          65535개가 1 plane
+				. Escape Sequence : \ 와 16진수 값 3개 작성
+				. unicode-table.com
+				. String.fromCodePont
+				. String.includes
+				. String.normalize
+				. String.raw `Template 코딩`
+			- Template
+			  . backtick(`) 사이에 기술
+				. `AB${표현식}`
+				. taged template
+				  예) function show(a, b) {};
+				      show `1+2=$(one + two)`;`
+			- Array
+				. Array.from
+				. Array.of
+				. Array.copyWithin
+				. Array.copyWithin : generic한 함수. Array-like, Iterable Obnject도 처리 가능
+				  예) Array.prototype.copyWithin.call 로 처리 가능
+				. Array.entries : iterable Object 생성하여 반환
+				                  kye : 인덱스, value : 값
+				. Arry.find(콜백함수, this로 접근할 함수)
+			- RegExp
+			  . u flag : /\u...\u../.test("검사대상");
+				. y flag : sticky flag. lastIndex(초기값 0)부터 검사 시작
+				           /패턴/y.test("검사대상");
+
+===========================================================================================
+			- Generator function
+			  . 생성과 실행이 분리된 형태. bind와 유사.
+				. 타입 : Generator(iterator) object
+				. new로 생성 안됨.
+				. prototype : Generator
+				  __proto__ : GenerationFunction
+				. yield 키워드 : 오른쪽 코드를 평가한 결과를 반환
+
+				. 예)
+				  function* sports(param1, param2){
+						yield param1 + param2;
+					}
+
+				. yield 키워드
+
+					1) const result = yield 표현식;
+					2) 표현식 평가 결과는 바로 할당되지 않고, next 호출시 할당
+					3) yield가 모두 호출되면 done : true 됨.
+					4) return() : 더 이상 yield 구문 찾아가지 않고 멈춤
+					5) throw() : 에러 생성하여 반환
+					5) yield* : iterable 객체 반환
+					   표현식 없으면 undefined 반환
+					   반환값 형태 {value: 평가결과, done: yield잔여존재여부}
+
+===========================================================================================
+
+<< Class >>
+
+. Fuction 오브젝트가 바탕
+. Syntex
+  class 클래스명 {}
+  class 클래스명 extends 상속받을 클래스명 {}
+  class 표현식 사용 가능 : 클래스명 = class {}
+. "use strict"  쓰지 않아도 strict 모드에서 실행
+. class 내 Fuction 정의는 함수명() 형태로 선언
+  다수의 함수는 구분자 없이 기술
+. 인스턴스 속성 공유는 동일하게 적용
+. window 오브젝트에 설정되지 않음에 주의
+. constructor : 생성자 키워드
+               class 키워드가 만나면 디폴트 생성자 호출.
+							 "return Nmuber 또는 String" 하면 무시하고 생성한 인스턴스 반환
+. get : getter 선언 키워드. 사용은 괄호없이 사용.
+. set : setter 선언 키워드. 사용은 괄호없이 사용.
+. extends : 수퍼 클래스 상속 키워드.
+            수퍼 클래스의 메소드 사용시 "super.~" 으로 접근.
+
+
+===========================================================================================
+
+
+
+		</pre>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+    /*
+    for in
+
+    for (var 변수 in 오브젝트) 문장;
+    for (표현식 in 오브젝트) 문장;
+
+    for (var name in sports) {...}
+
+    -> property name이 name에 설정
+    -> 작성된 순서로 읽는다는 것을 보장하지 않음 (ES5의 Spec)
+       순서가 중요한 경우는 배열 사용할 것
+
+
+    * Object
+    {key or name : value}
+
+    */
+
+      // 예제
+      console.log("#####################################");
+
+      var sports = {soccer : 11, basketball : 5};
+
+      for (var pty in sports) {
+        var val = sports[pty]; // ES6에서는 바로 반환하는 메소드 생김
+        console.log(pty + ":" + val);
+      }
+
+      console.log("#####################################");
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

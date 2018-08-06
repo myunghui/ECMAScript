@@ -1,0 +1,113 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		var res = JSON.parse('["ABC" : "가나다"]');
+		for (var k=0;k<res.length;k++){
+			console.log(res[k]);
+		}
+		console.log("#####################################");
+		console.log(JSON.parse("null"));
+		console.log("#####################################");
+		
+		try {
+		
+			var res = JSON.parse(
+				{"soccer":"55", "ball" : "22"},
+				function(key, value) {
+					return key === "soccer" ? 11: value;
+				}
+			);
+		
+		} catch(e) {
+			console.log("JSON parse 에러");
+		}
+		
+		console.log("#####################################");
+		
+		res = JSON.stringify(123);
+		console.log(res);
+		console.log(typeof res);
+		console.log(JSON.stringify([Infinity, NaN, null]));
+		console.log(JSON.stringify([true, false]));
+		console.log(JSON.stringify(undefined));
+		console.log(JSON.stringify([undefined]));
+		
+		console.log(JSON.stringify({"soccer" : ""}));
+		console.log(JSON.stringify({"soccer" : undefined}));
+		console.log(JSON.stringify(['soccer', 'baseball']));
+		console.log(JSON.stringify([{'soccer':A}, {baseball:9}, {aaa:null}]));
+		
+		
+		console.log("#####################################");
+		
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>Function Object</h1>
+		
+		- Function. prototype 
+			. call : 함수 호출. ES3 ~
+			. apply : 배열을 파라머터로 받는 함수 호출. ES3 ~
+			. bind : 새로운 오브젝트를 생성하고 생성한 오브젝트로 함수 실행. ES5 ~
+		- new Function(파라마터,,,,코드문자열) : 문자열로 function 작성. eval과 비슷. 지양.
+		- Function.length : 파라메터 개수
+		
+		* 함수 분류
+		
+		- function 키워드를 만나면 Function 오브젝트를 엔진이 생성
+		
+		- 1) Built-in function 오브젝트
+		  2) function 오브젝트
+		  3) new 사용하여 생성하는 function 인스턴스. prototype 사용
+		  
+		* 함수 생명 주기
+		
+		- 오브젝트명.함수명 이 아니면 Global Object 소유로 봄
+		- 코드 실행 순서
+			1) 함수의 첫음으로 이동
+			2) 파라메터에 값을 순서대로 매핑
+			3) 함수 내 코드 실행
+			4) return 유무에 무관하게, 호출된 곳으로 돌아감
+			5) 할당 연산자가 있으면 결과를 변수에 할당
+		
+		* 형태
+		
+		- 함수 선언문
+			. function getBook(book){}
+			. function 키워드 + 함수명 + 블록{} 은 필수
+			. 함수명은 function object 의 이름이 됨
+		- 함수 표현식
+			. var 함수명 = function(book){}
+			. fuction을 생성하여 변수에 할당
+		
+		* call
+		
+		- 함수.call(Object, 파라메터...)
+			cf) 함수(파라메터)는 Object(주로 this) 받을 수 없음
+		- 순서
+			1) this로 참조할 오브젝트 작성
+			2) 2번째 파라메터부터 파라메터 값 설정
+			3) 코드 수행
+		
+		* apply
+		
+		- call 과 동일하나, 파라메터가 Array(갯수 유동적일때 사용)
+		
+		
+		</div>
+		
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

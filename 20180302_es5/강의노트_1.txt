@@ -1,0 +1,50 @@
+
+1. 개요
+
+1) javascript는 Cotrol을 위해 사용
+   핵심은 Object 다
+
+
+2) Control
+
+  . Dom : HTML, CSS 컨트롤
+  . HTML5 API : File, indexedDB
+  . 그래픽 : SVG, Canvas, WebGL
+  . 통신 : XMLHttpRequest, Socket
+
+
+3) Object
+
+  . Object 형태 : {name : value}
+  . 자바스크립트 아키텍쳐 근간
+  . 생각의 전환 팔요하다
+
+4) 그외 특징
+
+  . 컨텐츠 방대
+  . 국제표준언어 : Vendor 독립적이며 표준화 가속화중
+  . 서버 영역 확대중 : Node.js, IOT ....
+
+
+
+2. 언어의 특징
+
+1) JIT Compile
+  Python, javascript 등은 실행시 컴파일(예: 시스템 함수, 사용자 입력 등의 변수)
+  ES5 이후 모듈단위 import하여 JIT 컴파일하여 사용하도록 구성되고 있음.
+  JIT Compile 특성상 성능에 영향 주지 않도록 고려하여 설계 필요.
+
+cf) Pre Compile 대표적 예 : java, c++은
+cf) WebAssembly
+
+2) Interpreter 언어 : 문장 단위로 해석. eval 함수 지양.
+
+3) Spec
+
+  . 명칭 : ECMAScript. ES5 등의 약칭 사용
+  . 역사
+    1996 최초 개발.
+    ES5 : 2011년 6월 발표. ES3(1999년이후 정체)와 완전 다른 언어
+    ES6 : 2015년 6월 발표. ECMAScript 표준제정.
+
+4) javascript는 OOP 언어다

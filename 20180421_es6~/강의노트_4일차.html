@@ -1,0 +1,124 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6</title>
+		<script src="myCode44.js" defer></script>
+	</head>
+	<body>
+		<pre>
+===========================================================================================
+
+<< Proxy >>
+
+- Proxy Trap : Handler
+- new Proxy(target오브젝트, handler코드);
+- Proxy는 constructor, prototype 이 없이 new  연산자 사용하여 생성
+  cf) JSON, Math, Global Object는 new 없이 생성 가능
+
+- get(target, key)
+
+- set(target, key, value, receiver)
+  . arrow 함수가 아닌 function 사용 : arrow함수는 this는 글로벌오브젝트임에 주의
+  . this는 handler(new Proxy의 두번째 인자) 이다.
+
+- has(target, key)
+
+
+===========================================================================================
+
+<< Reflect >>
+
+- Built In Object. constructor 없고, static method 만 존재.
+- Reflect.XXX 형태로 사용
+
+===========================================================================================
+
+<< ArrayBuffer >>
+
+- Typed Array : Array-like형태의 9가지 오브젝트
+                인덱스를 가진 동일 타입의 배열 타입
+- Array 처리 매커니즘
+  . 배열 길이 조정을 최소화 : 엘리먼트 삭제되면 그 위치를 undefined 로 설정
+	. 배열 조회시 undefined 제외
+- Javascript의 Memory 사용
+  . 기본 데이터 타입이 64 Bit(8 byte). ex) 숫자 1 은 1 byte만 필요.
+	. chunk 데이터는 비효율
+- Typed Array 필요
+  . 배열 길이를 변경하지 않는 구조
+	. 숫자 1 은 바이너리 1로 표현
+	. 값을 메모리에 설정하려면 바이너리 변환 필요
+
+cf) 바이너리 형태로 변환하는 방법의 예
+    FileReader.prototype.readAsArrayBuffer
+    XMLHttpRequest.prototype.send
+
+- ArrayBuffer
+  . 고정 길이 바이너리 버퍼 오브젝트
+  . TypedArray 또는 DataView 사용한 접근(데이터 타입 지정 포함)
+	  데이터 타입 : 8, 16, 32 Bit
+	. new ArrayBuffer(바이트수)
+    바이트수 미설정시 0 설정
+- TypedArray
+  . ArrayBuffer 데이터를 CRUD하기 위한 Array-like
+	. %TypedArray%
+  . 종류
+		Int8Array
+		Uint8Array
+		Uint8ClampedArray
+		Int16Array
+		Uint16Array
+		Int32Array
+		Uint32Array
+		Float32Array
+		Float64Array
+  . 길이 조정 안되므로 pop, push와 같은 메소드는 제공 안됨.
+
+- 구조체
+  . 다른 데이터 타입을 하나로 묶어 놓은 형태
+	. TypedArray로 구조체 만들수 있음
+	. {key:value}는 구조체와 형태에서 차이 있음
+
+- DataView
+  . ArrayBufer 처리 목적은 ArrayBuffer과 동일.
+	  서버에서 받는 데이터의 형식과 화면의 메모리 방식이 다른것을 해결해줌.
+  . getter
+	. setter
+	. Endianness : Byte Order. 메모리에 배치하는 방식.
+	               Host Computer 기준
+
+
+===========================================================================================
+<< ES8 >>
+
+- String.prototype.padStart / padEnd
+- Object.entries
+- Object.values
+- Object.getOwnPropertyDescriptors
+- Trailing commas : 에러 없음
+
+===========================================================================================
+
+<< Promise >>
+
+- javascript는 동기 방식으로 수행되나, Promise를 통해 비동기식 처리 가능
+- XMLHttpRequest와 유사. 특정 조건이 되었을때 수행되는 처리가 차이
+- 처리 진행할떄마다 [[promiseState]]에 저장
+  pending, settled (fulfilled, rejected)
+- pending 상태 : 인스턴스 생성 및 Handler 바인딩
+- settled 상태 : ....
+
+- new Promise(function resolve, reject) {}).then(
+	resolve에 연결할 처리, reject에 연결할 처리
+  )
+- resolve, reject Handler의 파라미터는 1개만 허용
+- return 없어도 Promise 인스턴스 반환
+
+
+
+
+
+
+		</pre>
+	</body>
+</html>

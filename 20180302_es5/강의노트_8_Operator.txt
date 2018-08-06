@@ -1,0 +1,114 @@
+[ Operator ]
+
+할당, 산술, 단항 연산자
+
+1. 표현식(Expression) 형태
+
+. ""표현식을 평가"
+. 예시
+1 + 2 <- 표현식을 평가하고 결과만 반환
+var total = 1 + 2; <- 표현식을 평가하고, 결과를 할당한다.
+var total = function() {};
+return 표현식;
+. 기호 : +-/*<=
+. typeof 연산자
+. delete 표현식 <- 변수 자체 삭제(?)
+. new 연산자
+
+2. typeof
+
+Undifined : "undefined"
+Null : "object" <- Object 와 혼동 피하기 위해 값으로 비교한다.
+Boolean : "boolean"
+Number : "number"
+String : "string"
+Object : "object"
+Function : "function"
+
+3. 할당 연산자
+. 단일 할당 : =
+. 복합 할당
+. + : 왼쪽 + 오른쪽 더함 또는 표현식 연결
+. - : 왼쪽 평가 결과에서 오는쪽 평가 결과 빼기 연산
+. * : 왼쪽 표현 결과에 오른쪽 평가 결과 곱함
+      부동소수점 연산된다는 특성 고려하여 구현해야 함.
+. /
+. %
+. 단항 + 값 : 피연산자의 값을 숫자값으로 변환. 문자열의 숫자값을 숫자로 변환시 사용. 비추천. 가독성 떨어짐.
+. 단항 ++ : 후치, 전치 구분해서 사용 할 것.
+. 단항 --
+. 논리 !연산자 : ~var. 원래 값은 할당 안함.
+                Undefined, Null, 0, NaN, 값없는 String 이면 false.
+. 비트 ~연산자 : ~value. 1 Bit 단위 처리하기 위한 연산자. ES6부터 필요.
+. 관계 연산자 : <, >, <=, >= , instanceof, in
+               수학적 비교 안되는 문자 비교는 유니코드 사전 순서대로 비교
+. 콤마 연산자
+. 괄호 연산자
+
+4. 숫자값 변환
+. 사칙연산전 숫자값으로 변환
+. 변환 결과
+
+Undefined : NaN
+Null : +0
+Boolean : true : 1, false : 0
+Number : 변환 전후 값 같음
+String : 값이 숫자이면 숫자값 (+연산 제외)
+
+cf) 1 + "1" => 11
+    1 * "1" => 1
+
+
+5. Property Accessor
+
+Object.Property = value;
+
+property 존재하면 value 할당.
+
+{} : 오브젝트 생성 초기화
+
+
+작성 형태
+. 점(.)
+없으면 value 할당된 property 추가.
+
+
+6. 동등연산자
+
+. == : 값 비교, 타입 무시.
+주의) undefined, null 비교 동일하게 판단하는 문제 있어 === 으로 대체 필요
+. ==== : 값 및  타입까지 비교.
+cf) ES6 에서는 Object.is(,) 사용
+
+
+7. OR 연산자
+
+. ||
+. 왼쪽에서 오른쪽으로 평가 진행하면서, 각 단계가 true 일때만 왼쪽 평가 진행.
+. 연산의 결과는 마지막값 반환
+
+
+8. AND 연산자
+
+. &&
+. 평가 진행 방법과 연산의 결과 처리도 OR 연산자와 동일
+
+9. 조건 연산자 (= 3항 연산자)
+
+. ?
+. exp ? A : B;
+
+10. 비트 연산자
+
+. 정수만 사용 가능
+. >> : 나누기
+. << : 승
+. | : bit or
+. & : bit and
+
+11. Operation 순서
+
+Grouping -> Member Access -> new ....
+
+
+developer.mozilla.org/en-US/docs/Web/JavaScript/Refernce/Operator/Operator_precedence

@@ -1,0 +1,93 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		var str = "하나";
+		console.log(str);
+		console.log(str.toString());
+		console.log("둘".toString());
+		console.log("#####################################");
+		str = "123456";
+		console.log(str.charAt(3));
+		console.log(str.charAt(30));
+		console.log(str[3]);
+		console.log(str[30]);
+		console.log("#####################################");
+		
+		str = "abAZ가나다라";
+		for (var k=0;k < str.length;k++) {
+			console.log(k + ":" + str.charCodeAt(k));
+		}
+		console.log(str.charCodeAt(30));
+		console.log("#####################################");
+		
+		function isContain(val, comp, sIdx) {
+		
+			return val.indexOf(comp, sIdx) > -1;
+		
+		}
+		
+		console.log(isContain("12345",3,0) ? "있음" : "없음");
+		console.log(isContain("12345",3,11) ? "있음" : "없음");
+		
+		
+		console.log("#####################################");
+		
+		// indexOf 와 lastIndexOf 통합
+		// str.indexOf(searchValue[, fromIndex])
+		// str.lastIndexOf(searchValue[, fromIndex])
+		function idxOf(searchValue, fromIndex) {
+
+			// 검색 시작 인덱스 체크
+			
+			// 검색 수행
+			
+			// 결과 반환
+			
+		}
+		str = "일이삼사오육칠팔구십";
+		var kw = "팔";
+		console.log(str.indexOf(kw, 0)); // 7
+		console.log(str.lastIndexOf(kw, 0)); // -1
+		console.log(str.lastIndexOf(kw, str.length)); // 7
+		console.log(str.lastIndexOf(kw, -1)); // -1
+		console.log(str.lastIndexOf(kw, 1)); // -1
+		
+		console.log("#####################################");
+		
+		str = " abcd ";
+		console.log( ">" + str.replace(/^\s+/, "") + "<");
+		console.log( ">" + str.replace(/\s+$/, "") + "<");
+		console.log( ">" + str.replace(/^\s+|\s+$/g, "") + "<");
+		
+		
+		console.log("#####################################");
+		
+		</script>
+	</head>
+	<body>
+	<pre>
+
+		String object
+		
+		- String prototype
+		. match : 정규표현식 패턴 매치
+		. replace : 패턴 사용 가능
+		. search : 패턴 사용 가능
+		. split : 패턴 사용 가능
+		. substring (인덱스 지정) / substr (문자수 지정)
+		. length : String 길이. Number 에는 없는 속성(undefined)
+		- 정규표현식
+		. /문자열/
+		. /문자열/ig : ignore case
+		. /문자열/.test() : 검색 결과 존재 여부 반환
+		. /문자열/.exec() : 검색 결과 반환
+		
+	</pre>
+	</body>
+</html>
+

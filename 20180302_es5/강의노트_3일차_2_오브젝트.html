@@ -1,0 +1,122 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+
+		// 예제
+		console.log("#####################################");
+		
+		console.log(Object.toString());
+		
+		var obj = new Object();
+		console.log(obj.toString());
+		
+		var objNum = new Number(12);
+		console.log(objNum.toString());
+		
+		var objArr = new Array(12,34);
+		console.log(objArr.toString());
+		
+		var v = 123456789;
+		console.log(v.toString());
+		//console.log(v.toLocalString());
+		console.log((1+2+3).toString());
+		
+		// valueOf는 원시타입 반환하므로 메소드 체인 연속 안됨
+		console.log(new Number(123).valueOf());		
+		console.log(new Object().valueOf());
+		
+		console.log("#####################################");
+		var obj = new Object();
+		obj.value = 123;
+		obj.undef = undefined;
+		
+		console.log(obj.hasOwnProperty("valueOf"));
+		console.log(obj.hasOwnProperty("value"));
+		console.log(obj.hasOwnProperty("undef"));
+		
+		
+		var a = Object;
+		//debugger;
+		
+		console.log("#####################################");
+		
+		var obj = new Number(); // Number prototype 상속됨
+		obj.value = 123;
+		console.log(obj.value);
+		console.log(obj.hasOwnProperty("value")); // hasOwnProperty는 Object에서 상속된것
+		
+		console.log("#####################################");
+		
+		console.log("#####################################");
+		
+		function Book() {};
+		
+		console.log("#####################################");
+		
+		
+		
+		</script>
+	</head>
+	<body>
+	<pre>
+
+		1) ES5 기준의 함수와 메소드
+
+		. 함수 : 오브젝트.XXX 로 접근
+		. 메소드 : 오브젝트.prototype.XXX 로 접근
+		
+		
+		
+		2) toString()
+		
+		. 인스턴스 타입을 문자열로 변환. 타입 체크 정도에 제한적으로 사용.
+		. 대부분의 빌트인 object에 toString()에 존재
+		. 모든 오브젝트에 상속된 메소드 : Object.prototype.toString()
+		. 해당 인스턴스에 정의된 toString()이 없으면, Object.prototype.toString() 호출
+		
+		3) valueOf()
+		
+		. 오브젝트의 Primtive value 반환. 메소드 체인 연속 안됨.
+		. Boolean, Date, Number, String 오브젝트는 자신의 valueOf() 호출
+		  그외는 Object.prototype.valueOf() 호출
+		. Object는 원시타입이 없어 문자열 반환
+		
+		4) hasOwnProperty()
+		
+		. 인스턴스 소유의 프로퍼티 존재 여부를 true, false 반환
+		. 상속받은 프로퍼티는 false 반환. 재정의 전 확인을 위해 제한적으로 사용.
+		
+		5) Object.prototype 상속
+		
+		. prototype 만 상속됨. __proto__
+		
+		6) prototype chain => ES6 에서 Class extends
+		
+		. prototype에 오브젝트 연결.
+		예) function Sports(){};
+		   Sports.prototype["baseball"] = function(){};
+		   
+		. new 의 인스턴스 생성 기준
+		  Sports.prototype = new Soccer();
+		  var obj = new Sports();
+		  
+		. prototype chain : prototype 을 매개로 인스턴스 연결
+		  
+		. 연결과 상속의 차이
+		  연결 : 프로퍼티 연결
+		  상속 : 인스턴스 연결
+		
+		7) isPrototypeOf
+		
+		8) propertyIsEnumeralble()
+		
+		. 
+		
+		
+	</pre>
+	</body>
+</html>
+

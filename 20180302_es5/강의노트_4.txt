@@ -1,0 +1,48 @@
+1) 키워드
+
+break
+case
+catch
+continue
+degugger <- ES5 에서 추가
+delete
+do
+else
+finallly
+for
+
+if
+in
+insetanceof
+new
+return
+swithch
+this
+throw
+try
+typeof
+car
+void
+while
+wit
+
+2) 예약어
+
+class
+const
+enum
+export
+extends
+import
+super
+
+- strict  모드 예약 <- OOP 언어에서 사용하는 예약어 그대로
+implements
+interface
+let
+package
+private
+protected
+public
+static
+yield

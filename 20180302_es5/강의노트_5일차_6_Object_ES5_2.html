@@ -1,0 +1,80 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		var objOne = {};
+		Object.defineProperty(
+			objOne,
+			"music", 
+			{
+			value:"음악",
+			writable:true
+			}
+		);
+	
+		Object.seal(objOne);
+		
+		
+		try {
+			Object.defineProperty(
+				objOne,
+				"book", 
+				{
+				value:"책"
+				}
+			);
+		} catch (e) {
+			console.log(e);
+		}
+			
+
+		
+		console.log("#####################################");
+		
+		var objTwo = {
+			"music" : "음악",
+			add:function(param) {
+				this.book = param;
+			}
+		};
+		
+		Object.seal(objTwo);
+		
+		try {
+			objTwo.add("책");
+		} catch (e) {
+			console.log("==>\n" + e);
+		}
+		
+		console.log("#####################################");
+		
+		var obj = Object.defineProperty({}, "swim", {value:"수영",writable:true});
+		Object.freeze(obj);
+		console.log(Object(obj));
+		debugger;
+		try {
+			Object.defineProperty(obj, "swim", {value:"값 변경"});
+		} catch (e) {
+			console.log(e);
+		}
+		
+		console.log("#####################################");
+		
+		</script>
+	</head>
+	<body>
+		<div style="width:100%;">
+		<pre>
+		<h1>ES5 Object 실습</h1>
+
+		<div id="dv" style="width:100%;background-color:yellow"></div>
+
+	</body>
+	
+</html>
+

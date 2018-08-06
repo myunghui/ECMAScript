@@ -1,0 +1,43 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+
+		/*
+		try-catch-finally
+		
+		catch 구문에 exception 인스턴스가 전달됨
+		
+		*/
+
+		// 예제
+		console.log("#####################################");
+		
+		/*
+		var sports;
+		var res;
+		*/
+		try {
+			var sports;
+			var res;
+			console.log("try");
+			sports = baseball;
+		} catch(e) {
+			res = "error";
+			console.log("catch");
+			console.log(e);
+		} finally {
+			console.log("finally");
+			console.log(res);
+		}
+
+		console.log("#####################################");
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

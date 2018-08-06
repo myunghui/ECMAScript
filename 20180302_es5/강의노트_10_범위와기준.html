@@ -1,0 +1,105 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+
+		/*
+		1) 범위와 기준
+		. 객체지향 프로그래밍 언어
+		. Runtime Compile (pre compile 안됨)
+		. ECMA Overview
+		
+		
+		2) Rendering
+		. javascript 실행 환경 설정
+		. 첫번째 <script></script> 를 만났을때,
+		  두번째는 Rendering 하지 않음.
+		. 언어 실행을 위한 built in Object 생성
+		. 언어에서 사용하는 값의 초기화
+		
+		cf) Built in : rendering 시 생성하는 것의 총칭
+		
+		
+		3) Built-in
+		. data type : Undefined, Null, Boolean, Number, String, Object
+		. operator : +,-....
+		. object
+			Global, Object, Function, Array
+			String, Boolean, Number
+			Math, Date, RegExp, JSON
+			Error, EvalError, RangeError, Referebc...
+		
+		4) JSON
+		. {[name:value]}
+		. JSON 형태 제어, ES5에서 추가됨
+		. 서버와 데이터 송수신에 사용하는
+		
+		5) RegExp
+		. 문자열 대상
+		. ^,$ 등의 정규 표현식
+		. ECMAscript 스펙에 정의되어 있음
+
+		6) Global Object
+		. 소스 코드 전체를 통해 하나만 존재
+		. 모든 소스코드에서 공유
+		. 전역 객체
+		
+		7) Function
+		. function 함수명 (파라케터,,,,) {
+			// 기능 구현 코드
+		}
+		. 함수명 : 식별자여야 함. 첫문자는 [숫자,&, *, +]사용 불가.
+		. Parameter
+		. function을 호출하면 Function Object가 반환된다.
+		
+		cf) Argument 객체 별도 존재
+		
+		cf) Class
+			. ES6 지원
+			. 객체를 작성하는 것. object로 생성되어야 사용 가능.
+			. java, c++과 구현 방법 다르다.
+			. class의 body는 항상 strict 모드. -> with, eval 사용 못함
+			
+			
+		8) Prototype
+		. javascript에 OOP 구현을 위한 오브젝트
+		. prototype 오브젝트에 메소드(함수) 연결
+		. 메소드이름:메소드코드 형태로 작성하는. 연결된 메소드를 인스턴스로 생성.
+		. 예) String.prototype.concat
+		
+		
+		
+		
+
+		
+		*/
+
+		// 예제
+		console.log("#####################################");
+		
+		/*
+		var sports;
+		var res;
+		*/
+		try {
+			//throw "throw 문자열";
+			throw {message : "throw object throw"};
+		} catch(e) {
+			res = "error";
+			console.log("catch");
+			console.log(e.message);
+		} finally {
+			console.log("finally");
+			console.log(res);
+		}
+
+		console.log("#####################################");
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
+

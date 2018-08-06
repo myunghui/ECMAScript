@@ -1,0 +1,74 @@
+<!DOMTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script>
+		
+		console.log("#####################################");
+		
+		var value = 123;	// var로 선언한 변수 : 삭제 불가능
+		console.log(delete value);
+		
+		gValue = 123;	// 글로벌 프로퍼티 : 삭제 가능
+		console.log(delete gValue);
+		
+		
+		try {
+			// 변수라서 에러
+			console.log("global property", gValue);
+		} catch(e) {
+			console.log(e);
+		};
+		console.log(delete XXX);
+		
+		console.log("#####################################");
+		var book = {
+			"title" : "책",
+			"author" : "저자"
+		};
+		console.log(delete book.title);
+		console.log(book.title);
+		
+		console.log(delete book);
+		
+		console.log("#####################################");
+		
+		var values = [12, 34, 56, 78];
+		console.log(delete values[2]);
+		console.log(values.length);
+		console.log(values);
+		
+		for (var k=0;k<values.length;k++) {
+			var str = "[" + k + "	" + values[k];
+			var rst = delete values[k];
+			console.log(str + "	delete " + (rst ? "성공" : "실패") + "]");
+		}
+		
+		console.log("#####################################");
+		
+		function Sports() {};
+		Sports.prototype.baseball = "야구";
+		var obj = new Sports();
+		
+		console.log(delete obj.baseball);	// 참조는 삭제 안됨
+		console.log(obj.baseball);
+		
+		console.log(delete Sports.prototype.baseball);	// 원본은 삭제 가능
+		console.log(Sports.prototype.baseball);
+		console.log(obj.baseball);
+		
+		console.log("#####################################");
+		
+		</script>
+	</head>
+	<body>
+		<pre>
+		Object의 delete 연사자
+		- property는 삭제 가능(ES5에서는 삭제도 가능여부 제어). 변수는 삭제 불가능
+		- 예) delete sports.soccer;
+             delete list[2];
+		</pre>
+	</body>
+</html>
+

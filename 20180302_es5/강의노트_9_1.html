@@ -1,0 +1,37 @@
+<!DOMTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+
+    // IF문
+    // if(표현식) 문장
+
+
+
+    var a = 1, b = 1;
+    var c = 0;
+    if(a===b) console.log("블록 사용 안함");
+
+    if(a===b)
+      console.log("줄 바꿔 문장 작성. 블럭없으면 첫번째 줄만 수행된다.");
+    //  c = -1;
+    else // 블럭 없어 에러남
+      c = 2;
+
+    console.log(c);
+    if(a===b) {
+      console.log("블록 사용");
+      c = a;
+    }
+    console.log(c);
+
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
